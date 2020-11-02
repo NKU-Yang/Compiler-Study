@@ -1,0 +1,37 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=2247, cgraph_uid=0, symbol_order=0)
+
+main ()
+{
+  int f;
+  int n;
+  int i;
+  int n.0_1;
+
+  <bb 2> [0.00%]:
+  scanf ("%d", &n);
+  i_6 = 2;
+  f_7 = 1;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  f_10 = f_3 * i_2;
+  i_11 = i_2 + 1;
+
+  <bb 4> [0.00%]:
+  # i_2 = PHI <i_6(2), i_11(3)>
+  # f_3 = PHI <f_7(2), f_10(3)>
+  n.0_1 = n;
+  if (i_2 <= n.0_1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  printf ("%d\n", f_3);
+  n ={v} {CLOBBER};
+  return;
+
+}
+
+

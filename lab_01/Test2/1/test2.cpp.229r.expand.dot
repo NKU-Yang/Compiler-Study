@@ -1,0 +1,204 @@
+digraph "test2.cpp.229r.expand" {
+overlap=false;
+subgraph "cluster_int main()" {
+	style="dashed";
+	color="black";
+	label="int main() ()";
+	subgraph cluster_1493_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_1493_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 52:\ L52:\l\
+|\ \ \ 31:\ NOTE_INSN_BASIC_BLOCK\ 4\l\
+|\ \ \ 32:\ r89:SI=[r82:DI-0x1c]\l\
+|\ \ \ 33:\ flags:CCGC=cmp([r82:DI-0x10],r89:SI)\l\
+|\ \ \ 34:\ pc=\{(flags:CCGC\>=0)?L55:pc\}\l\
+}"];
+
+	fn_1493_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 35:\ NOTE_INSN_BASIC_BLOCK\ 5\l\
+|\ \ \ 36:\ r102:SI=[r82:DI-0x14]\l\
+|\ \ \ 37:\ [r82:DI-0xc]=r102:SI\l\
+|\ \ \ 38:\ r103:SI=[r82:DI-0x18]\l\
+|\ \ \ 39:\ \{[r82:DI-0x14]=[r82:DI-0x14]+r103:SI;clobber\ flags:CC;\}\l\
+|\ \ \ 40:\ r104:SI=[r82:DI-0x14]\l\
+|\ \ \ 41:\ si:SI=r104:SI\l\
+|\ \ \ 42:\ di:DI=`_ZSt4cout'\l\
+|\ \ \ 43:\ ax:DI=call\ [`_ZNSolsEi']\ argc:0\l\
+|\ \ \ 44:\ r90:DI=ax:DI\l\
+|\ \ \ 45:\ r105:DI=[const(unspec[`_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_']\ 2)]\l\
+|\ \ \ 46:\ si:DI=r105:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_'\l\
+|\ \ \ 47:\ di:DI=r90:DI\l\
+|\ \ \ 48:\ ax:DI=call\ [`_ZNSolsEPFRSoS_E']\ argc:0\l\
+|\ \ \ 49:\ r106:SI=[r82:DI-0xc]\l\
+|\ \ \ 50:\ [r82:DI-0x18]=r106:SI\l\
+|\ \ \ 51:\ \{[r82:DI-0x10]=[r82:DI-0x10]+0x1;clobber\ flags:CC;\}\l\
+|\ \ \ 53:\ pc=L52\l\
+}"];
+
+	}
+	fn_1493_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1493_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1493_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ \ 4:\ NOTE_INSN_BASIC_BLOCK\ 2\l\
+|\ \ \ \ 2:\ NOTE_INSN_FUNCTION_BEG\l\
+|\ \ \ \ 3:\ \{[r82:DI-0x8]=unspec[0x28]\ 81;scratch=0;clobber\ flags:CC;\}\l\
+|\ \ \ \ 6:\ [r82:DI-0x18]=0\l\
+|\ \ \ \ 7:\ [r82:DI-0x14]=0x1\l\
+|\ \ \ \ 8:\ [r82:DI-0x10]=0x1\l\
+|\ \ \ \ 9:\ \{r97:DI=r82:DI-0x1c;clobber\ flags:CC;\}\l\
+|\ \ \ 10:\ si:DI=r97:DI\l\
+|\ \ \ 11:\ di:DI=`_ZSt3cin'\l\
+|\ \ \ 12:\ ax:DI=call\ [`_ZNSirsERi']\ argc:0\l\
+|\ \ \ 13:\ r98:SI=[r82:DI-0x18]\l\
+|\ \ \ 14:\ si:SI=r98:SI\l\
+|\ \ \ 15:\ di:DI=`_ZSt4cout'\l\
+|\ \ \ 16:\ ax:DI=call\ [`_ZNSolsEi']\ argc:0\l\
+|\ \ \ 17:\ r87:DI=ax:DI\l\
+|\ \ \ 18:\ r99:DI=[const(unspec[`_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_']\ 2)]\l\
+|\ \ \ 19:\ si:DI=r99:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_'\l\
+|\ \ \ 20:\ di:DI=r87:DI\l\
+|\ \ \ 21:\ ax:DI=call\ [`_ZNSolsEPFRSoS_E']\ argc:0\l\
+|\ \ \ 22:\ r100:SI=[r82:DI-0x14]\l\
+|\ \ \ 23:\ si:SI=r100:SI\l\
+|\ \ \ 24:\ di:DI=`_ZSt4cout'\l\
+|\ \ \ 25:\ ax:DI=call\ [`_ZNSolsEi']\ argc:0\l\
+|\ \ \ 26:\ r88:DI=ax:DI\l\
+|\ \ \ 27:\ r101:DI=[const(unspec[`_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_']\ 2)]\l\
+|\ \ \ 28:\ si:DI=r101:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_'\l\
+|\ \ \ 29:\ di:DI=r88:DI\l\
+|\ \ \ 30:\ ax:DI=call\ [`_ZNSolsEPFRSoS_E']\ argc:0\l\
+}"];
+
+	fn_1493_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 55:\ L55:\l\
+|\ \ \ 56:\ NOTE_INSN_BASIC_BLOCK\ 6\l\
+|\ \ \ 57:\ si:DI=`*.LC0'\l\
+|\ \ \ 58:\ di:DI=`_ZSt4cout'\l\
+|\ \ \ 59:\ ax:DI=call\ [`_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc']\ argc:0\l\
+|\ \ \ 60:\ r91:DI=ax:DI\l\
+|\ \ \ 61:\ r107:SI=[r82:DI-0x18]\l\
+|\ \ \ 62:\ si:SI=r107:SI\l\
+|\ \ \ 63:\ di:DI=r91:DI\l\
+|\ \ \ 64:\ ax:DI=call\ [`_ZNSolsEi']\ argc:0\l\
+|\ \ \ 65:\ r92:DI=ax:DI\l\
+|\ \ \ 66:\ r108:DI=[const(unspec[`_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_']\ 2)]\l\
+|\ \ \ 67:\ si:DI=r108:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_'\l\
+|\ \ \ 68:\ di:DI=r92:DI\l\
+|\ \ \ 69:\ ax:DI=call\ [`_ZNSolsEPFRSoS_E']\ argc:0\l\
+|\ \ \ 70:\ si:DI=`*.LC1'\l\
+|\ \ \ 71:\ di:DI=`_ZSt4cout'\l\
+|\ \ \ 72:\ ax:DI=call\ [`_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc']\ argc:0\l\
+|\ \ \ 73:\ r93:DI=ax:DI\l\
+|\ \ \ 74:\ r109:SI=[r82:DI-0x14]\l\
+|\ \ \ 75:\ si:SI=r109:SI\l\
+|\ \ \ 76:\ di:DI=r93:DI\l\
+|\ \ \ 77:\ ax:DI=call\ [`_ZNSolsEi']\ argc:0\l\
+|\ \ \ 78:\ r94:DI=ax:DI\l\
+|\ \ \ 79:\ r110:DI=[const(unspec[`_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_']\ 2)]\l\
+|\ \ \ 80:\ si:DI=r110:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_'\l\
+|\ \ \ 81:\ di:DI=r94:DI\l\
+|\ \ \ 82:\ ax:DI=call\ [`_ZNSolsEPFRSoS_E']\ argc:0\l\
+|\ \ \ 83:\ r95:SI=0\l\
+|\ \ \ 86:\ r96:SI=r95:SI\l\
+|\ \ \ 90:\ ax:SI=r96:SI\l\
+|\ \ \ 91:\ \{flags:CCZ=unspec[[r82:DI-0x8],0x28]\ 82;clobber\ scratch;\}\l\
+|\ \ \ 92:\ pc=\{(flags:CCZ==0)?L95:pc\}\l\
+}"];
+
+	fn_1493_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 98:\ NOTE_INSN_BASIC_BLOCK\ 9\l\
+|\ \ \ 93:\ call\ [`__stack_chk_fail']\ argc:0\l\
+\ \ \ \ \ \ REG_ARGS_SIZE\ 0\l\
+\ \ \ \ \ \ REG_NORETURN\ 0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+}"];
+
+	fn_1493_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 95:\ L95:\l\
+|\ \ \ 99:\ NOTE_INSN_BASIC_BLOCK\ 10\l\
+|\ \ \ 96:\ use\ ax:SI\l\
+}"];
+
+	fn_1493_basic_block_0:s -> fn_1493_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1493_basic_block_2:s -> fn_1493_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1493_basic_block_4:s -> fn_1493_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true, label="[0%]"];
+	fn_1493_basic_block_4:s -> fn_1493_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1493_basic_block_5:s -> fn_1493_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false, label="[0%]"];
+	fn_1493_basic_block_6:s -> fn_1493_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true, label="[0%]"];
+	fn_1493_basic_block_6:s -> fn_1493_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1493_basic_block_10:s -> fn_1493_basic_block_1:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[100%]"];
+	fn_1493_basic_block_0:s -> fn_1493_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_void __static_initialization_and_destruction_0(int, int)" {
+	style="dashed";
+	color="black";
+	label="void __static_initialization_and_destruction_0(int, int) ()";
+	fn_1982_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1982_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1982_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ \ 5:\ NOTE_INSN_BASIC_BLOCK\ 2\l\
+|\ \ \ \ 2:\ [r82:DI-0x4]=di:SI\l\
+|\ \ \ \ 3:\ [r82:DI-0x8]=si:SI\l\
+|\ \ \ \ 4:\ NOTE_INSN_FUNCTION_BEG\l\
+|\ \ \ \ 7:\ flags:CCZ=cmp([r82:DI-0x4],0x1)\l\
+|\ \ \ \ 8:\ pc=\{(flags:CCZ!=0)?L22:pc\}\l\
+}"];
+
+	fn_1982_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ \ 9:\ NOTE_INSN_BASIC_BLOCK\ 4\l\
+|\ \ \ 10:\ flags:CCZ=cmp([r82:DI-0x8],0xffff)\l\
+|\ \ \ 11:\ pc=\{(flags:CCZ!=0)?L22:pc\}\l\
+}"];
+
+	fn_1982_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 12:\ NOTE_INSN_BASIC_BLOCK\ 5\l\
+|\ \ \ 13:\ di:DI=`_ZStL8__ioinit'\l\
+|\ \ \ 14:\ call\ [`_ZNSt8ios_base4InitC1Ev']\ argc:0\l\
+|\ \ \ 15:\ dx:DI=`__dso_handle'\l\
+|\ \ \ 16:\ si:DI=`_ZStL8__ioinit'\l\
+|\ \ \ 17:\ r87:DI=[const(unspec[`_ZNSt8ios_base4InitD1Ev']\ 2)]\l\
+|\ \ \ 18:\ di:DI=r87:DI\l\
+\ \ \ \ \ \ REG_EQUAL\ `_ZNSt8ios_base4InitD1Ev'\l\
+|\ \ \ 19:\ ax:SI=call\ [`__cxa_atexit']\ argc:0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+}"];
+
+	fn_1982_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ 22:\ L22:\l\
+|\ \ \ 23:\ NOTE_INSN_BASIC_BLOCK\ 7\l\
+}"];
+
+	fn_1982_basic_block_0:s -> fn_1982_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1982_basic_block_2:s -> fn_1982_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1982_basic_block_2:s -> fn_1982_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true, label="[0%]"];
+	fn_1982_basic_block_4:s -> fn_1982_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1982_basic_block_4:s -> fn_1982_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true, label="[0%]"];
+	fn_1982_basic_block_5:s -> fn_1982_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1982_basic_block_7:s -> fn_1982_basic_block_1:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[100%]"];
+	fn_1982_basic_block_0:s -> fn_1982_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_(static initializers for test2.cpp)" {
+	style="dashed";
+	color="black";
+	label="(static initializers for test2.cpp) ()";
+	fn_1983_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1983_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1983_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{ FREQ:0 |\ \ \ \ 3:\ NOTE_INSN_BASIC_BLOCK\ 2\l\
+|\ \ \ \ 2:\ NOTE_INSN_FUNCTION_BEG\l\
+|\ \ \ \ 5:\ si:SI=0xffff\l\
+|\ \ \ \ 6:\ di:SI=0x1\l\
+|\ \ \ \ 7:\ call\ [`_Z41__static_initialization_and_destruction_0ii']\ argc:0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+}"];
+
+	fn_1983_basic_block_0:s -> fn_1983_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[0%]"];
+	fn_1983_basic_block_2:s -> fn_1983_basic_block_1:n [style="solid,bold",color=blue,weight=100,constraint=true, label="[100%]"];
+	fn_1983_basic_block_0:s -> fn_1983_basic_block_1:n [style="invis",constraint=true];
+}
+}
