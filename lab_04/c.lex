@@ -59,7 +59,10 @@
 #define NUMBER 69 //number
 #define DEFAULT 70//default
 int IDcount=0;//IDcount
-char** map;
+char map[100][100];
+int l_scope=0;
+int r_scope=0;
+int new_scope=1;
 %}
 white [\t\n ]
 digit [0-9]
@@ -94,9 +97,39 @@ commentend "*/"
 "while" {fprintf(yyout,"WHILE %d %s\n",WHILE,yytext);}
 "scanf" {fprintf(yyout,"SCANF %d %s\n",SCANF,yytext);}
 "printf" {fprintf(yyout,"PRINTF %d %s\n",PRINTF,yytext);}
-{id} {fprintf(yyout,"ID %d %s\n",ID_excute(yytext,map),yytext);}
-"{" {fprintf(yyout,"LC %d %s\n",LC,yytext);}
-"}" {fprintf(yyout,"RC %d %s\n",RC,yytext);}
+{id} {
+        int flag = 0;
+        int i = 0;
+        for(i=IDcount-1;i>0;i--)
+        {
+           if(strcmp(yytext,map[i])==0)
+           {
+               flag=1;break;
+           }
+        }
+        if(flag==1&&new_scope!=0)
+        {
+           fprintf(yyout,"ID %d %s\n",i+70,yytext);
+        }
+        else
+        {
+             IDcount++;
+             strcpy(map[IDcount-1],yytext);
+             new_scope=1;
+             fprintf(yyout,"ID %d %s\n",IDcount-1+70,yytext);
+        }
+}
+
+"{" {if(l_scope-r_scope==0)
+                       new_scope=0;
+               else
+                       new_scope=1;
+      l_scope++;
+           fprintf(yyout,"LC %d %s\n",LC,yytext);}
+
+"}" {r_scope++;
+          fprintf(yyout,"RC %d %s\n",RC,yytext);}
+
 "[" {fprintf(yyout,"LB %d %s\n",LB,yytext);}
 "]" {fprintf(yyout,"RB %d %s\n",RB,yytext);}
 "(" {fprintf(yyout,"LP %d %s\n",LP,yytext);}
@@ -131,11 +164,7 @@ commentend "*/"
 %%
 int main()
 {
-  map=(char**)malloc(sizeof(char*)*100);
-  for(int i=0;i<100;i++)
-  {
-     map[i]=(char*)malloc(sizeof(char)*100);
-  }
+  memset(map, 0, sizeof(map));
   yyin=fopen("testin.c","r");
   yyout=fopen("testout.txt","w");
   fprintf(yyout,"token name value\n");
@@ -146,30 +175,7 @@ int yywrap()
 {
 return 1;
 }
-int ID_excute(char*str,char**map)
-{
-   int flag = 0;
-	int i = 0;
-	while (map[i++])
-	{
-		if (str == map[i])
-		{
-			flag = 1; break;
-		}
-		if (i == 100)
-			break;
-	}
-	if (flag == 1)
-	{
-		return i;
-	}
-	else
-	{
-		IDcount++;
-		map[IDcount + 70] = str;
-		return IDcount + 70;
-	}
-}
+
 
 
 
