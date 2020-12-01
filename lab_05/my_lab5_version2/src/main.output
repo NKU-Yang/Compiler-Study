@@ -1,0 +1,1777 @@
+Terminals unused in grammar
+
+   ELSE
+   BREAK
+   NUM
+   CONTINUE
+   POINT
+   ASS
+   LSP
+   RSP
+
+
+语法
+
+    0 $accept: program $end
+
+    1 program: VOID MAIN LP RP LFP statement RFP
+
+    2 statements: statement
+    3           | statements statement
+
+    4 statement: LFP SEMI
+    5          | decl SEMI
+    6          | assign SEMI
+    7          | LFP statements RFP
+    8          | WHILE LP cond RP statement
+    9          | IF LP cond RP statement
+   10          | FOR LP statement cond SEMI for RP statement
+   11          | RETURN expr SEMI
+   12          | RETURN SEMI
+   13          | PRINT LP ids RP SEMI
+   14          | SCANF LP ids RP SEMI
+
+   15 ids: ids COMMA expr
+   16    | expr
+   17    | ids COMMA SP expr
+
+   18 for: assign
+
+   19 decl: type assigns
+   20     | CONST type assigns
+
+   21 assigns: assigns COMMA assign
+   22        | assigns COMMA ID
+   23        | assign
+   24        | ID
+
+   25 assign: ID ASSIGN expr
+   26       | ID ADDASS expr
+   27       | ID SUBASS expr
+   28       | ID MULASS expr
+   29       | ID DIVASS expr
+   30       | ID REMASS expr
+   31       | ID DPLUS
+   32       | ID DMINUS
+
+   33 expr: ID
+   34     | INTEGER
+   35     | CHAR
+   36     | STRING
+   37     | expr PLUS expr
+   38     | expr MINUS expr
+   39     | expr MUL expr
+   40     | expr DIV expr
+   41     | expr REMI expr
+   42     | LP expr RP
+
+   43 cond: condand OR condand
+   44     | condand
+
+   45 condand: condno AND condno
+   46        | condno
+
+   47 condno: NOT condition
+   48       | condition
+
+   49 condition: expr GT expr
+   50          | expr GE expr
+   51          | expr LT expr
+   52          | expr LE expr
+   53          | expr EQ expr
+   54          | expr NEQ expr
+   55          | LP cond RP
+
+   56 type: INT
+   57     | CHAR
+   58     | BOOL
+   59     | STRING
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+COMMA (258) 15 17 21 22
+SEMI (259) 4 5 6 10 11 12 13 14
+LP (260) 1 8 9 10 13 14 42 55
+RP (261) 1 8 9 10 13 14 42 55
+LFP (262) 1 4 7
+RFP (263) 1 7
+IF (264) 9
+ELSE (265)
+MAIN (266) 1
+FOR (267) 10
+WHILE (268) 8
+BREAK (269)
+INT (270) 56
+CHAR (271) 35 57
+VOID (272) 1
+CONST (273) 20
+BOOL (274) 58
+STRING (275) 36 59
+INTEGER (276) 34
+ID (277) 22 24 25 26 27 28 29 30 31 32 33
+NUM (278)
+RETURN (279) 11 12
+CONTINUE (280)
+PLUS (281) 37
+MINUS (282) 38
+MUL (283) 39
+DIV (284) 40
+REMI (285) 41
+DPLUS (286) 31
+DMINUS (287) 32
+LT (288) 51
+LE (289) 52
+GT (290) 49
+GE (291) 50
+EQ (292) 53
+NEQ (293) 54
+ASSIGN (294) 25
+AND (295) 45
+OR (296) 43
+NOT (297) 47
+POINT (298)
+ADDASS (299) 26
+SUBASS (300) 27
+MULASS (301) 28
+DIVASS (302) 29
+REMASS (303) 30
+SP (304) 17
+SCANF (305) 14
+PRINT (306) 13
+ASS (307)
+LSP (308)
+RSP (309)
+
+
+Nonterminals, with rules where they appear
+
+$accept (55)
+    左： 0
+program (56)
+    左： 1, 右： 0
+statements (57)
+    左： 2 3, 右： 3 7
+statement (58)
+    左： 4 5 6 7 8 9 10 11 12 13 14, 右： 1 2 3 8 9 10
+ids (59)
+    左： 15 16 17, 右： 13 14 15 17
+for (60)
+    左： 18, 右： 10
+decl (61)
+    左： 19 20, 右： 5
+assigns (62)
+    左： 21 22 23 24, 右： 19 20 21 22
+assign (63)
+    左： 25 26 27 28 29 30 31 32, 右： 6 18 21 23
+expr (64)
+    左： 33 34 35 36 37 38 39 40 41 42, 右： 11 15 16 17 25 26
+    27 28 29 30 37 38 39 40 41 42 49 50 51 52 53 54
+cond (65)
+    左： 43 44, 右： 8 9 10 55
+condand (66)
+    左： 45 46, 右： 43 44
+condno (67)
+    左： 47 48, 右： 45 46
+condition (68)
+    左： 49 50 51 52 53 54 55, 右： 47 48
+type (69)
+    左： 56 57 58 59, 右： 19 20
+
+
+State 0
+
+    0 $accept: . program $end
+
+    VOID  shift, and go to state 1
+
+    program  转到状态 2
+
+
+State 1
+
+    1 program: VOID . MAIN LP RP LFP statement RFP
+
+    MAIN  shift, and go to state 3
+
+
+State 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 4
+
+
+State 3
+
+    1 program: VOID MAIN . LP RP LFP statement RFP
+
+    LP  shift, and go to state 5
+
+
+State 4
+
+    0 $accept: program $end .
+
+    $default  接受
+
+
+State 5
+
+    1 program: VOID MAIN LP . RP LFP statement RFP
+
+    RP  shift, and go to state 6
+
+
+State 6
+
+    1 program: VOID MAIN LP RP . LFP statement RFP
+
+    LFP  shift, and go to state 7
+
+
+State 7
+
+    1 program: VOID MAIN LP RP LFP . statement RFP
+
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 21
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 8
+
+    4 statement: LFP . SEMI
+    7          | LFP . statements RFP
+
+    SEMI    shift, and go to state 25
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statements  转到状态 26
+    statement   转到状态 27
+    decl        转到状态 22
+    assign      转到状态 23
+    type        转到状态 24
+
+
+State 9
+
+    9 statement: IF . LP cond RP statement
+
+    LP  shift, and go to state 28
+
+
+State 10
+
+   10 statement: FOR . LP statement cond SEMI for RP statement
+
+    LP  shift, and go to state 29
+
+
+State 11
+
+    8 statement: WHILE . LP cond RP statement
+
+    LP  shift, and go to state 30
+
+
+State 12
+
+   56 type: INT .
+
+    $default  reduce using rule 56 (type)
+
+
+State 13
+
+   57 type: CHAR .
+
+    $default  reduce using rule 57 (type)
+
+
+State 14
+
+   20 decl: CONST . type assigns
+
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+
+    type  转到状态 31
+
+
+State 15
+
+   58 type: BOOL .
+
+    $default  reduce using rule 58 (type)
+
+
+State 16
+
+   59 type: STRING .
+
+    $default  reduce using rule 59 (type)
+
+
+State 17
+
+   25 assign: ID . ASSIGN expr
+   26       | ID . ADDASS expr
+   27       | ID . SUBASS expr
+   28       | ID . MULASS expr
+   29       | ID . DIVASS expr
+   30       | ID . REMASS expr
+   31       | ID . DPLUS
+   32       | ID . DMINUS
+
+    DPLUS   shift, and go to state 32
+    DMINUS  shift, and go to state 33
+    ASSIGN  shift, and go to state 34
+    ADDASS  shift, and go to state 35
+    SUBASS  shift, and go to state 36
+    MULASS  shift, and go to state 37
+    DIVASS  shift, and go to state 38
+    REMASS  shift, and go to state 39
+
+
+State 18
+
+   11 statement: RETURN . expr SEMI
+   12          | RETURN . SEMI
+
+    SEMI     shift, and go to state 40
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 46
+
+
+State 19
+
+   14 statement: SCANF . LP ids RP SEMI
+
+    LP  shift, and go to state 47
+
+
+State 20
+
+   13 statement: PRINT . LP ids RP SEMI
+
+    LP  shift, and go to state 48
+
+
+State 21
+
+    1 program: VOID MAIN LP RP LFP statement . RFP
+
+    RFP  shift, and go to state 49
+
+
+State 22
+
+    5 statement: decl . SEMI
+
+    SEMI  shift, and go to state 50
+
+
+State 23
+
+    6 statement: assign . SEMI
+
+    SEMI  shift, and go to state 51
+
+
+State 24
+
+   19 decl: type . assigns
+
+    ID  shift, and go to state 52
+
+    assigns  转到状态 53
+    assign   转到状态 54
+
+
+State 25
+
+    4 statement: LFP SEMI .
+
+    $default  reduce using rule 4 (statement)
+
+
+State 26
+
+    3 statements: statements . statement
+    7 statement: LFP statements . RFP
+
+    LFP     shift, and go to state 8
+    RFP     shift, and go to state 55
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 56
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 27
+
+    2 statements: statement .
+
+    $default  reduce using rule 2 (statements)
+
+
+State 28
+
+    9 statement: IF LP . cond RP statement
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 59
+    cond       转到状态 60
+    condand    转到状态 61
+    condno     转到状态 62
+    condition  转到状态 63
+
+
+State 29
+
+   10 statement: FOR LP . statement cond SEMI for RP statement
+
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 64
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 30
+
+    8 statement: WHILE LP . cond RP statement
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 59
+    cond       转到状态 65
+    condand    转到状态 61
+    condno     转到状态 62
+    condition  转到状态 63
+
+
+State 31
+
+   20 decl: CONST type . assigns
+
+    ID  shift, and go to state 52
+
+    assigns  转到状态 66
+    assign   转到状态 54
+
+
+State 32
+
+   31 assign: ID DPLUS .
+
+    $default  reduce using rule 31 (assign)
+
+
+State 33
+
+   32 assign: ID DMINUS .
+
+    $default  reduce using rule 32 (assign)
+
+
+State 34
+
+   25 assign: ID ASSIGN . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 67
+
+
+State 35
+
+   26 assign: ID ADDASS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 68
+
+
+State 36
+
+   27 assign: ID SUBASS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 69
+
+
+State 37
+
+   28 assign: ID MULASS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 70
+
+
+State 38
+
+   29 assign: ID DIVASS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 71
+
+
+State 39
+
+   30 assign: ID REMASS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 72
+
+
+State 40
+
+   12 statement: RETURN SEMI .
+
+    $default  reduce using rule 12 (statement)
+
+
+State 41
+
+   42 expr: LP . expr RP
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 73
+
+
+State 42
+
+   35 expr: CHAR .
+
+    $default  reduce using rule 35 (expr)
+
+
+State 43
+
+   36 expr: STRING .
+
+    $default  reduce using rule 36 (expr)
+
+
+State 44
+
+   34 expr: INTEGER .
+
+    $default  reduce using rule 34 (expr)
+
+
+State 45
+
+   33 expr: ID .
+
+    $default  reduce using rule 33 (expr)
+
+
+State 46
+
+   11 statement: RETURN expr . SEMI
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    SEMI   shift, and go to state 74
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+
+State 47
+
+   14 statement: SCANF LP . ids RP SEMI
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    ids   转到状态 80
+    expr  转到状态 81
+
+
+State 48
+
+   13 statement: PRINT LP . ids RP SEMI
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    ids   转到状态 82
+    expr  转到状态 81
+
+
+State 49
+
+    1 program: VOID MAIN LP RP LFP statement RFP .
+
+    $default  reduce using rule 1 (program)
+
+
+State 50
+
+    5 statement: decl SEMI .
+
+    $default  reduce using rule 5 (statement)
+
+
+State 51
+
+    6 statement: assign SEMI .
+
+    $default  reduce using rule 6 (statement)
+
+
+State 52
+
+   24 assigns: ID .
+   25 assign: ID . ASSIGN expr
+   26       | ID . ADDASS expr
+   27       | ID . SUBASS expr
+   28       | ID . MULASS expr
+   29       | ID . DIVASS expr
+   30       | ID . REMASS expr
+   31       | ID . DPLUS
+   32       | ID . DMINUS
+
+    DPLUS   shift, and go to state 32
+    DMINUS  shift, and go to state 33
+    ASSIGN  shift, and go to state 34
+    ADDASS  shift, and go to state 35
+    SUBASS  shift, and go to state 36
+    MULASS  shift, and go to state 37
+    DIVASS  shift, and go to state 38
+    REMASS  shift, and go to state 39
+
+    $default  reduce using rule 24 (assigns)
+
+
+State 53
+
+   19 decl: type assigns .
+   21 assigns: assigns . COMMA assign
+   22        | assigns . COMMA ID
+
+    COMMA  shift, and go to state 83
+
+    $default  reduce using rule 19 (decl)
+
+
+State 54
+
+   23 assigns: assign .
+
+    $default  reduce using rule 23 (assigns)
+
+
+State 55
+
+    7 statement: LFP statements RFP .
+
+    $default  reduce using rule 7 (statement)
+
+
+State 56
+
+    3 statements: statements statement .
+
+    $default  reduce using rule 3 (statements)
+
+
+State 57
+
+   42 expr: LP . expr RP
+   55 condition: LP . cond RP
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 84
+    cond       转到状态 85
+    condand    转到状态 61
+    condno     转到状态 62
+    condition  转到状态 63
+
+
+State 58
+
+   47 condno: NOT . condition
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr       转到状态 59
+    condition  转到状态 86
+
+
+State 59
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   49 condition: expr . GT expr
+   50          | expr . GE expr
+   51          | expr . LT expr
+   52          | expr . LE expr
+   53          | expr . EQ expr
+   54          | expr . NEQ expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+    LT     shift, and go to state 87
+    LE     shift, and go to state 88
+    GT     shift, and go to state 89
+    GE     shift, and go to state 90
+    EQ     shift, and go to state 91
+    NEQ    shift, and go to state 92
+
+
+State 60
+
+    9 statement: IF LP cond . RP statement
+
+    RP  shift, and go to state 93
+
+
+State 61
+
+   43 cond: condand . OR condand
+   44     | condand .
+
+    OR  shift, and go to state 94
+
+    $default  reduce using rule 44 (cond)
+
+
+State 62
+
+   45 condand: condno . AND condno
+   46        | condno .
+
+    AND  shift, and go to state 95
+
+    $default  reduce using rule 46 (condand)
+
+
+State 63
+
+   48 condno: condition .
+
+    $default  reduce using rule 48 (condno)
+
+
+State 64
+
+   10 statement: FOR LP statement . cond SEMI for RP statement
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 59
+    cond       转到状态 96
+    condand    转到状态 61
+    condno     转到状态 62
+    condition  转到状态 63
+
+
+State 65
+
+    8 statement: WHILE LP cond . RP statement
+
+    RP  shift, and go to state 97
+
+
+State 66
+
+   20 decl: CONST type assigns .
+   21 assigns: assigns . COMMA assign
+   22        | assigns . COMMA ID
+
+    COMMA  shift, and go to state 83
+
+    $default  reduce using rule 20 (decl)
+
+
+State 67
+
+   25 assign: ID ASSIGN expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 25 (assign)
+
+
+State 68
+
+   26 assign: ID ADDASS expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 26 (assign)
+
+
+State 69
+
+   27 assign: ID SUBASS expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 27 (assign)
+
+
+State 70
+
+   28 assign: ID MULASS expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 28 (assign)
+
+
+State 71
+
+   29 assign: ID DIVASS expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 29 (assign)
+
+
+State 72
+
+   30 assign: ID REMASS expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 30 (assign)
+
+
+State 73
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   42     | LP expr . RP
+
+    RP     shift, and go to state 98
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+
+State 74
+
+   11 statement: RETURN expr SEMI .
+
+    $default  reduce using rule 11 (statement)
+
+
+State 75
+
+   37 expr: expr PLUS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 99
+
+
+State 76
+
+   38 expr: expr MINUS . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 100
+
+
+State 77
+
+   39 expr: expr MUL . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 101
+
+
+State 78
+
+   40 expr: expr DIV . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 102
+
+
+State 79
+
+   41 expr: expr REMI . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 103
+
+
+State 80
+
+   14 statement: SCANF LP ids . RP SEMI
+   15 ids: ids . COMMA expr
+   17    | ids . COMMA SP expr
+
+    COMMA  shift, and go to state 104
+    RP     shift, and go to state 105
+
+
+State 81
+
+   16 ids: expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 16 (ids)
+
+
+State 82
+
+   13 statement: PRINT LP ids . RP SEMI
+   15 ids: ids . COMMA expr
+   17    | ids . COMMA SP expr
+
+    COMMA  shift, and go to state 104
+    RP     shift, and go to state 106
+
+
+State 83
+
+   21 assigns: assigns COMMA . assign
+   22        | assigns COMMA . ID
+
+    ID  shift, and go to state 107
+
+    assign  转到状态 108
+
+
+State 84
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   42     | LP expr . RP
+   49 condition: expr . GT expr
+   50          | expr . GE expr
+   51          | expr . LT expr
+   52          | expr . LE expr
+   53          | expr . EQ expr
+   54          | expr . NEQ expr
+
+    RP     shift, and go to state 98
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+    LT     shift, and go to state 87
+    LE     shift, and go to state 88
+    GT     shift, and go to state 89
+    GE     shift, and go to state 90
+    EQ     shift, and go to state 91
+    NEQ    shift, and go to state 92
+
+
+State 85
+
+   55 condition: LP cond . RP
+
+    RP  shift, and go to state 109
+
+
+State 86
+
+   47 condno: NOT condition .
+
+    $default  reduce using rule 47 (condno)
+
+
+State 87
+
+   51 condition: expr LT . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 110
+
+
+State 88
+
+   52 condition: expr LE . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 111
+
+
+State 89
+
+   49 condition: expr GT . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 112
+
+
+State 90
+
+   50 condition: expr GE . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 113
+
+
+State 91
+
+   53 condition: expr EQ . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 114
+
+
+State 92
+
+   54 condition: expr NEQ . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 115
+
+
+State 93
+
+    9 statement: IF LP cond RP . statement
+
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 116
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 94
+
+   43 cond: condand OR . condand
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 59
+    condand    转到状态 117
+    condno     转到状态 62
+    condition  转到状态 63
+
+
+State 95
+
+   45 condand: condno AND . condno
+
+    LP       shift, and go to state 57
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    NOT      shift, and go to state 58
+
+    expr       转到状态 59
+    condno     转到状态 118
+    condition  转到状态 63
+
+
+State 96
+
+   10 statement: FOR LP statement cond . SEMI for RP statement
+
+    SEMI  shift, and go to state 119
+
+
+State 97
+
+    8 statement: WHILE LP cond RP . statement
+
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 120
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 98
+
+   42 expr: LP expr RP .
+
+    $default  reduce using rule 42 (expr)
+
+
+State 99
+
+   37 expr: expr . PLUS expr
+   37     | expr PLUS expr .
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    MUL   shift, and go to state 77
+    DIV   shift, and go to state 78
+    REMI  shift, and go to state 79
+
+    $default  reduce using rule 37 (expr)
+
+
+State 100
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   38     | expr MINUS expr .
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    MUL   shift, and go to state 77
+    DIV   shift, and go to state 78
+    REMI  shift, and go to state 79
+
+    $default  reduce using rule 38 (expr)
+
+
+State 101
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   39     | expr MUL expr .
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    $default  reduce using rule 39 (expr)
+
+
+State 102
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   40     | expr DIV expr .
+   41     | expr . REMI expr
+
+    $default  reduce using rule 40 (expr)
+
+
+State 103
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   41     | expr REMI expr .
+
+    $default  reduce using rule 41 (expr)
+
+
+State 104
+
+   15 ids: ids COMMA . expr
+   17    | ids COMMA . SP expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+    SP       shift, and go to state 121
+
+    expr  转到状态 122
+
+
+State 105
+
+   14 statement: SCANF LP ids RP . SEMI
+
+    SEMI  shift, and go to state 123
+
+
+State 106
+
+   13 statement: PRINT LP ids RP . SEMI
+
+    SEMI  shift, and go to state 124
+
+
+State 107
+
+   22 assigns: assigns COMMA ID .
+   25 assign: ID . ASSIGN expr
+   26       | ID . ADDASS expr
+   27       | ID . SUBASS expr
+   28       | ID . MULASS expr
+   29       | ID . DIVASS expr
+   30       | ID . REMASS expr
+   31       | ID . DPLUS
+   32       | ID . DMINUS
+
+    DPLUS   shift, and go to state 32
+    DMINUS  shift, and go to state 33
+    ASSIGN  shift, and go to state 34
+    ADDASS  shift, and go to state 35
+    SUBASS  shift, and go to state 36
+    MULASS  shift, and go to state 37
+    DIVASS  shift, and go to state 38
+    REMASS  shift, and go to state 39
+
+    $default  reduce using rule 22 (assigns)
+
+
+State 108
+
+   21 assigns: assigns COMMA assign .
+
+    $default  reduce using rule 21 (assigns)
+
+
+State 109
+
+   55 condition: LP cond RP .
+
+    $default  reduce using rule 55 (condition)
+
+
+State 110
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   51 condition: expr LT expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 51 (condition)
+
+
+State 111
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   52 condition: expr LE expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 52 (condition)
+
+
+State 112
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   49 condition: expr GT expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 49 (condition)
+
+
+State 113
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   50 condition: expr GE expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 50 (condition)
+
+
+State 114
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   53 condition: expr EQ expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 53 (condition)
+
+
+State 115
+
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+   54 condition: expr NEQ expr .
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 54 (condition)
+
+
+State 116
+
+    9 statement: IF LP cond RP statement .
+
+    $default  reduce using rule 9 (statement)
+
+
+State 117
+
+   43 cond: condand OR condand .
+
+    $default  reduce using rule 43 (cond)
+
+
+State 118
+
+   45 condand: condno AND condno .
+
+    $default  reduce using rule 45 (condand)
+
+
+State 119
+
+   10 statement: FOR LP statement cond SEMI . for RP statement
+
+    ID  shift, and go to state 17
+
+    for     转到状态 125
+    assign  转到状态 126
+
+
+State 120
+
+    8 statement: WHILE LP cond RP statement .
+
+    $default  reduce using rule 8 (statement)
+
+
+State 121
+
+   17 ids: ids COMMA SP . expr
+
+    LP       shift, and go to state 41
+    CHAR     shift, and go to state 42
+    STRING   shift, and go to state 43
+    INTEGER  shift, and go to state 44
+    ID       shift, and go to state 45
+
+    expr  转到状态 127
+
+
+State 122
+
+   15 ids: ids COMMA expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 15 (ids)
+
+
+State 123
+
+   14 statement: SCANF LP ids RP SEMI .
+
+    $default  reduce using rule 14 (statement)
+
+
+State 124
+
+   13 statement: PRINT LP ids RP SEMI .
+
+    $default  reduce using rule 13 (statement)
+
+
+State 125
+
+   10 statement: FOR LP statement cond SEMI for . RP statement
+
+    RP  shift, and go to state 128
+
+
+State 126
+
+   18 for: assign .
+
+    $default  reduce using rule 18 (for)
+
+
+State 127
+
+   17 ids: ids COMMA SP expr .
+   37 expr: expr . PLUS expr
+   38     | expr . MINUS expr
+   39     | expr . MUL expr
+   40     | expr . DIV expr
+   41     | expr . REMI expr
+
+    PLUS   shift, and go to state 75
+    MINUS  shift, and go to state 76
+    MUL    shift, and go to state 77
+    DIV    shift, and go to state 78
+    REMI   shift, and go to state 79
+
+    $default  reduce using rule 17 (ids)
+
+
+State 128
+
+   10 statement: FOR LP statement cond SEMI for RP . statement
+
+    LFP     shift, and go to state 8
+    IF      shift, and go to state 9
+    FOR     shift, and go to state 10
+    WHILE   shift, and go to state 11
+    INT     shift, and go to state 12
+    CHAR    shift, and go to state 13
+    CONST   shift, and go to state 14
+    BOOL    shift, and go to state 15
+    STRING  shift, and go to state 16
+    ID      shift, and go to state 17
+    RETURN  shift, and go to state 18
+    SCANF   shift, and go to state 19
+    PRINT   shift, and go to state 20
+
+    statement  转到状态 129
+    decl       转到状态 22
+    assign     转到状态 23
+    type       转到状态 24
+
+
+State 129
+
+   10 statement: FOR LP statement cond SEMI for RP statement .
+
+    $default  reduce using rule 10 (statement)
