@@ -1,7 +1,8 @@
 # Compile-Principle of NKU
-南开大学2020秋，编译原理课程作业，最终目标是实现一个能支持C语言子集的编译器
-lab_01: 通过两段简单的C语言程序，熟悉编译器的工作原理。
-lab_02: 定义自己想实现的编译器并尝试简单的汇编编程。
-lab_03: 学习使用Yacc, 实现一个简单的计算器和一个能将中缀表达式转换为后缀表达式的程序。
-lab_04:学习使用Flex，实现一个识别C语言子集的词法分析器。
-lab_05:结合Yacc和Lex实现语法分析，并输出语法树。
+Homework for Complier 2021 fall, at Nankai University
+lab_01: Familiarise with the workings of a compiler with two simple C programs.
+lab_02: Define the compiler to implement and try simple assembly programming.
+lab_03: Learn to use Yacc, implement a simple calculator and a programme that converts mid-expressions to postfixes.
+lab_04: Learn to use Flex to implement a lexical analyser that recognises a subset of the C language.
+lab_05: Combine Yacc and Lex to implement a syntax analyser and output a syntax tree.
+
